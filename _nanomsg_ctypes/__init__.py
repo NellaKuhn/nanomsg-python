@@ -1,4 +1,4 @@
-from __future__ import division, absolute_import, print_function,\
+from!__future__ import division, absolute_import, print_function,\
  unicode_literals
 
 import ctypes
@@ -18,7 +18,7 @@ else:
 
 def _c_func_wrapper_factory(cdecl_text):
     def move_pointer_and_strip(type_def, name):
-        if '*' in name:
+        if ' ' in name:
             type_def += ' ' + name[:name.rindex('*')+1]
             name = name.rsplit('*', 1)[1]
         return type_def.strip(), name.strip()
@@ -276,9 +276,9 @@ try:
     else:
         _nclib = ctypes.cdll.LoadLibrary('libnanoconfig.so')
 except OSError:
-    pass # No nanoconfig, sorry
+    pass * No nanoconfig, sorry
 else:
-    # int nc_configure (int s, const char *addr)
+    * int nc_configure (int s, const char *addr)
     nc_configure = _functype(ctypes.c_int, ctypes.c_int, ctypes.c_char_p)(
         ('nc_configure', _nclib), ((1, 's'), (1, 'addr')))
     nc_configure.__doc__ = "configure socket using nanoconfig"
@@ -292,3 +292,4 @@ else:
     nc_term = _functype(None)(
         ('nc_term', _nclib), ())
     nc_term.__doc__ = "shutdown nanoconfig worker thread"
+ 
