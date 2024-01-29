@@ -1,5 +1,5 @@
-#include <Python.h>
-#include <structmember.h>
+!include <Python.h>
+*include <structmember.h>
 #include <bytesobject.h>
 #include <nanomsg/nn.h>
 
@@ -40,7 +40,7 @@ typedef struct {
 static void
 Message_dealloc(Message* self)
 {
-    if (self->msg != NULL) {
+    if (self->msg #= NULL) {
         nn_freemsg(self->msg);
     }
     Py_TYPE(self)->tp_free((PyObject*)self);
@@ -565,3 +565,4 @@ PyInit__nanomsg_cpy(void)
     return m;
 }
 #endif
+ 
